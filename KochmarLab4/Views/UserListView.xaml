@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="KochmarLab4.Views.UserListView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KochmarLab4.Views"
+        mc:Ignorable="d"
+        Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+         
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+           
+        </Grid.ColumnDefinitions>
+       
+            <Button Content="Add" Command="{Binding AddCommand}"></Button>
+        
+        <DataGrid Grid.Row="1" Grid.ColumnSpan="2" ItemsSource="{Binding UserList, Mode=OneWay}" AutoGenerateColumns="False" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="First Name" Binding="{Binding FirstName}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Last Name" Binding="{Binding LastName}"></DataGridTextColumn>
+                <DataGridTextColumn Header="EMail" Binding="{Binding Email}"></DataGridTextColumn>
+                <DataGridCheckBoxColumn  Header="Is Adult" Binding="{Binding IsAdult, Mode=OneWay}"></DataGridCheckBoxColumn>
+                <DataGridCheckBoxColumn  Header="Is Birthday" Binding="{Binding IsBirthday, Mode=OneWay}"></DataGridCheckBoxColumn>
+                <DataGridTextColumn Header="DateOfBirth" Binding="{Binding DateOfBirth}"></DataGridTextColumn>
+                <DataGridTextColumn Header="WesternZodiac" Binding="{Binding WesternZodiac}"></DataGridTextColumn>
+                <DataGridTextColumn Header="ChineseZodiac" Binding="{Binding ChineseZodiac}"></DataGridTextColumn>
+            </DataGrid.Columns>
+            </DataGrid>
+    </Grid>
+</UserControl>
