@@ -1,4 +1,6 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+using KochmarLabs2_3.Exceptions;
 
 namespace KochmarLab4.Models
 {
@@ -22,18 +24,15 @@ namespace KochmarLab4.Models
             _lastName = lastName;
             _eMail = email;
             _birthDate = birthDate;
-
+      
         }
 
-        public Person()
-        {
-        
-        }
         public Person(string fistName, string lastName, string email)
         {
             _firstName = fistName;
             _lastName = lastName;
             _eMail = email;
+          
         }
 
         public Person(string fistName, string lastName, DateTime birthDate)
@@ -41,6 +40,7 @@ namespace KochmarLab4.Models
             _firstName = fistName;
             _lastName = lastName;
             _birthDate = birthDate;
+           
         }
 
         public bool IsAdult => Age >= 18;
@@ -257,32 +257,32 @@ namespace KochmarLab4.Models
             return (DateOfBirth.Day == DateTime.Today.Day && DateOfBirth.Month == DateTime.Today.Month);
         }
 
-        //private void ValidAge(int age)
-        //{
-        //    if (age > 150)
-        //        throw new PersonException.MaybeDiedPersonException();
+        private void ValidAge(int age)
+        {
+            if (age > 150)
+                throw new PersonException.MaybeDiedPersonException();
 
-        //    if (age < 0)
-        //        throw new PersonException.NotEvenBorn();
-        //}
+            if (age < 0)
+                throw new PersonException.NotEvenBorn();
+        }
 
-        //private void ValidEmail(string email)
-        //{
-        //    if (!new EmailAddressAttribute().IsValid(email))
-        //        throw new PersonException.EmailException();
-        //}
+        private void ValidEmail(string email)
+        {
+            if (!new EmailAddressAttribute().IsValid(email))
+                throw new PersonException.EmailException();
+        }
 
-        //private void ValidFirstName(string str)
-        //{
-        //    if (str.Length < 2)
-        //        throw new PersonException.FirstNameException();
-        //}
+        private void ValidFirstName(string str)
+        {
+            if (str.Length < 2)
+                throw new PersonException.FirstNameException();
+        }
 
-        //private void ValidLastName(string str)
-        //{
-        //    if (str.Length < 2)
-        //        throw new PersonException.LastNameException();
-        //}
+        private void ValidLastName(string str)
+        {
+            if (str.Length < 2)
+                throw new PersonException.LastNameException();
+        }
 
         public static readonly string[] FirstNames =
             {

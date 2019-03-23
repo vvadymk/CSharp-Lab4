@@ -46,7 +46,7 @@ namespace KochmarLab4
 
         private void AddingImpl(object obj)
         {
-            StationManager.CurrentUser = new Person();
+            StationManager.CurrentUser = new Person("test", "test", "test@mail");
             NavigationManager.Instance.Navigate(ViewType.FormView);
         }
     }
